@@ -11,6 +11,7 @@ std::string TextFile::getName() {
 	return name;
 
 }
+
 int TextFile::write(std::vector<char> name) {
 	try{ contents = name; }
 	catch (...) {

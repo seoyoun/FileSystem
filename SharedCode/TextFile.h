@@ -1,7 +1,7 @@
 #pragma once
 // TextFile declaration goes here
 #include "AbstractFile.h"
-class TextFile : public AbstactFile {
+class TextFile : public AbstractFile {
 public:
 	virtual void read() ;
 	virtual int write(std::vector<char>) ;
