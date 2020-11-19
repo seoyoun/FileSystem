@@ -16,13 +16,11 @@ int ImageFile::write(std::vector<char> file) {
 	int length = (int)(size)-48;
 	for (int i = 0; i < file.size()-1; ++i) {
 		if (length*length!=(file.size()-1)||(file[i] != 'X' && file[i] != ' ')) {
-			for (int j = 0; j < contents.size(); ++j) {
-				contents[j] = ' ';
-			}
+			contents.clear();
 			size = '0';
 			return 1;
 		}
-		contents[i]=file[i];
+		contents.push_back(file[i]);
 	}
 	return 0;
 };

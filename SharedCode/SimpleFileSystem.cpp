@@ -1,14 +1,14 @@
 // define methods of SimpleFileSystem class here
 #include "SimpleFileSystem.h"
 int SimpleFileSystem::addFile(std::string InsertFile, AbstractFile* a) {
-	if (FileMap.find(InsertFile) == FileMap.end() || a == nullptr) {
+	if (FileMap.find(InsertFile) != FileMap.end() || a == nullptr) {
 		return 1;
 	}
-	FileMap.insert({ InsertFile,a });
+	FileMap[InsertFile] = a;
 	return 0;
 }
 int SimpleFileSystem::createFile(std::string FileName) {
-	if (FileMap.find(FileName) == FileMap.end()) {
+	if (FileMap.find(FileName) != FileMap.end()) {
 		return 1;
 	}
 	size_t i = FileName.rfind('.', FileName.length());
@@ -28,16 +28,15 @@ int SimpleFileSystem::createFile(std::string FileName) {
 }
 AbstractFile* SimpleFileSystem::openFile(std::string FileName) {
 	if (FileMap.find(FileName) == FileMap.end()) {
-
-		if (OpenFile.find(FileMap.at(FileName)) != OpenFile.end()) {
-			OpenFile.insert(FileMap.at(FileName));
-			return 0;
-		}
-		else {
-			return nullptr;
-		}
+		return nullptr;
 	}
-	return nullptr;
+	if (OpenFile.find(FileMap[FileName]) != OpenFile.end()) {
+		return nullptr;
+	}
+	
+			OpenFile.insert(FileMap[FileName]);
+			return FileMap[FileName];
+
 }
 int SimpleFileSystem::closeFile(AbstractFile* ClosedFile) {
 	if (OpenFile.find(ClosedFile) != OpenFile.end()) {
@@ -47,10 +46,11 @@ int SimpleFileSystem::closeFile(AbstractFile* ClosedFile) {
 	return 1;
 }
 int SimpleFileSystem::deleteFile(std::string FileName) {
-	if (FileMap.find(FileName) == FileMap.end()) {
-		if (OpenFile.find(FileMap.at(FileName)) != OpenFile.end()) {
+	if (FileMap.find(FileName) != FileMap.end()) {
+		if (OpenFile.find(FileMap[FileName]) == OpenFile.end()) {
 			FileMap.erase(FileName);
-			delete FileMap.at(FileName);
+			delete FileMap[FileName];
+			return 0;
 		}
 		else {
 			return 1;
