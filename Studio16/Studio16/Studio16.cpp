@@ -10,7 +10,8 @@ int main()
 {
 	auto a = TextFile("asd");
 	std::vector<char> tem;
-	tem.push_back('tem');
+	tem.push_back('m');
+	cout << tem[0] << endl;
 	a.write(tem);
 	a.read();
 	return 0;

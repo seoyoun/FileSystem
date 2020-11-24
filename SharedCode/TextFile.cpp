@@ -31,6 +31,6 @@ int TextFile::append(std::vector<char> appenditem) {
 }
 void TextFile::read() {
 	for (int i = 0; i < contents.size(); ++i) {
-		cout << contents[i]<<flush;
+		cout << contents[i] << flush;
 	}
 }
