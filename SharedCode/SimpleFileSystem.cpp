@@ -1,5 +1,8 @@
 // define methods of SimpleFileSystem class here
 #include "SimpleFileSystem.h"
+#include <string>
+using namespace std;
+
 int SimpleFileSystem::addFile(std::string InsertFile, AbstractFile* a) {
 	if (FileMap.find(InsertFile) != FileMap.end() || a == nullptr) {
 		return 1;
@@ -7,25 +10,7 @@ int SimpleFileSystem::addFile(std::string InsertFile, AbstractFile* a) {
 	FileMap[InsertFile] = a;
 	return 0;
 }
-int SimpleFileSystem::createFile(std::string FileName) {
-	if (FileMap.find(FileName) != FileMap.end()) {
-		return 1;
-	}
-	size_t i = FileName.rfind('.', FileName.length());
-	if (i != string::npos) {
-		string exten=(FileName.substr(i + 1, FileName.length() - i));
-		if (exten == "txt") {
-			AbstractFile* tem =new TextFile(FileName);
-			return addFile(FileName, tem);
-		}
-		if (exten == "img") {
-			AbstractFile* tem = new ImageFile(FileName);
-			return addFile(FileName, tem);
-		}
-	}
 
-	return 1;
-}
 AbstractFile* SimpleFileSystem::openFile(std::string FileName) {
 	if (FileMap.find(FileName) == FileMap.end()) {
 		return nullptr;
