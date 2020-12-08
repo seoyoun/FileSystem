@@ -2,6 +2,7 @@
 #include "TextFile.h"
 #include <vector>
 #include <iostream>
+#include"AbstractFileVisitor.h"
 TextFile::TextFile(std::string name):name{ name } {
 };
 unsigned int TextFile::getSize(){
@@ -29,8 +30,14 @@ int TextFile::append(std::vector<char> appenditem) {
 	}
 	return 0;
 }
-void TextFile::read() {
-	for (int i = 0; i < contents.size(); ++i) {
-		cout << contents[i]<<flush;
-	}
+vector<char> TextFile::read() {
+	//for (int i = 0; i < contents.size(); ++i) {
+	//	cout << contents[i]<<flush;
+	//}
+	return contents;
+}
+
+void TextFile::accept(AbstractFileVisitor* visitor) {
+	visitor->visit_TextFile(this);
+
 }

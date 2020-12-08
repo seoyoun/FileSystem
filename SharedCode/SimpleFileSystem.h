@@ -14,8 +14,8 @@ private:
 	std::map<std::string, AbstractFile*> FileMap;
 	std::set<AbstractFile*>OpenFile;
 public:
-	
-	int createFile(std::string) ;
+	int addFile(std::string InsertFile, AbstractFile* a);
+
 	int deleteFile(std::string) ;
 	 AbstractFile* openFile(std::string) ;
 	int closeFile(AbstractFile*) ;
