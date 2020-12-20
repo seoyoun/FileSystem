@@ -82,7 +82,7 @@ int CommandPrompt::run() {
 		string extraCmd;
 		int cmdNum = 0;
 		stream >> realCmd;
-		if (!(stream.tellp() == 0)) {
+		if (!(stream.rdbuf()->in_avail() == 0)) {
 			cmdNum++;
 			extraCmd = stream.str();
 		}
@@ -97,25 +97,29 @@ int CommandPrompt::run() {
 				}
 			}
 			else {
-				cout << "command does not exist" << endl;
+				cout << "command does not exist 1 command" << endl;
 			}
 		}
 		if (cmdNum == 1) {
 			if (realCmd == "help") {
 				stringstream helpStream(extraCmd);
+				string garbageDump;
+				helpStream >> garbageDump;
 				string helpCmd;
 				helpStream >> helpCmd;
-
 				auto itr = commandMap.find(helpCmd);
-				cout << helpCmd << endl;
 				if (itr != commandMap.end()) {
 					(itr->second)->displayInfo();
 				}
 				else {
-					cout << "command does not exist" << endl;
+					cout << "command does not exist 2 command" << endl;
 				}
 			}
 			else {
+
+				extraCmd = extraCmd.substr(extraCmd.find_first_of(" \t") + 1);;
+
+				cout << extraCmd << " extra" << endl;
 				auto itr = commandMap.find(realCmd);
 				if (itr != commandMap.end()) {
 					int state;
@@ -125,7 +129,7 @@ int CommandPrompt::run() {
 					}
 				}
 				else {
-					cout << "command does not exist" << endl;
+					cout << "command does not exist 3" << endl;
 				}
 			}
 
