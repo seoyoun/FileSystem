@@ -40,7 +40,10 @@ void CommandPrompt::setFileFactory(AbstractFileFactory* fileFac) {
 
 int CommandPrompt::addCommand(string name, AbstractCommand* command) {
 	auto res = commandMap.insert({ name,command });
-	return res.second;
+	if (res.second == false) {
+		return 1;
+	}
+	return 0;
 }
 
 void CommandPrompt::listCommands() {
@@ -104,8 +107,9 @@ int CommandPrompt::run() {
 				helpStream >> helpCmd;
 
 				auto itr = commandMap.find(helpCmd);
+				cout << helpCmd << endl;
 				if (itr != commandMap.end()) {
-					itr->second->displayInfo();
+					(itr->second)->displayInfo();
 				}
 				else {
 					cout << "command does not exist" << endl;
