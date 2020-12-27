@@ -1,6 +1,7 @@
-// define methods of SimpleFileSystem class here
+﻿// define methods of SimpleFileSystem class here
 #include "SimpleFileSystem.h"
 #include <string>
+#include <iostream>
 using namespace std;
 
 int SimpleFileSystem::addFile(std::string InsertFile, AbstractFile* a) {
@@ -33,8 +34,9 @@ int SimpleFileSystem::closeFile(AbstractFile* ClosedFile) {
 int SimpleFileSystem::deleteFile(std::string FileName) {
 	if (FileMap.find(FileName) != FileMap.end()) {
 		if (OpenFile.find(FileMap[FileName]) == OpenFile.end()) {
-			FileMap.erase(FileName);
+			cout << FileMap.size() << endl;
 			delete FileMap[FileName];
+			FileMap.erase(FileName);
 			return 0;
 		}
 		else {
@@ -42,4 +44,12 @@ int SimpleFileSystem::deleteFile(std::string FileName) {
 		}
 	}
 	return 1;
+}
+std::set<string> SimpleFileSystem::​getFileNames​() {
+	set<string> s;
+	for (auto it = FileMap.begin(); it != FileMap.end(); ++it) {
+		auto i = it->first;
+		s.insert(i);
+	}
+	return s;
 }
