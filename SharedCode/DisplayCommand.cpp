@@ -47,6 +47,7 @@ int DisplayCommand::execute(string filename) {
 
 	}
 	catch (...) {
+		cout << "unexpect error occured while searching" << endl;
 		return unexpectedException;
 	}
 	return success;

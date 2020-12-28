@@ -144,6 +144,8 @@
     <ClCompile Include="..\..\SharedCode\CommandPrompt.cpp" />
     <ClCompile Include="..\..\SharedCode\CopyCommand.cpp" />
     <ClCompile Include="..\..\SharedCode\DisplayCommand.cpp" />
+    <ClCompile Include="..\..\SharedCode\GrepCommand.cpp" />
+    <ClCompile Include="..\..\SharedCode\GrepVisitor.cpp" />
     <ClCompile Include="..\..\SharedCode\ImageFile.cpp" />
     <ClCompile Include="..\..\SharedCode\LSCommand.cpp" />
     <ClCompile Include="..\..\SharedCode\MacroCommand.cpp" />
@@ -169,6 +171,8 @@
     <ClInclude Include="..\..\SharedCode\CommandPrompt.h" />
     <ClInclude Include="..\..\SharedCode\CopyCommand.h" />
     <ClInclude Include="..\..\SharedCode\DisplayCommand.h" />
+    <ClInclude Include="..\..\SharedCode\GrepCommand.h" />
+    <ClInclude Include="..\..\SharedCode\GrepVisitor.h" />
     <ClInclude Include="..\..\SharedCode\ImageFile.h" />
     <ClInclude Include="..\..\SharedCode\LSCommand.h" />
     <ClInclude Include="..\..\SharedCode\MacroCommand.h" />

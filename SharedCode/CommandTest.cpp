@@ -1,6 +1,7 @@
 // USED by unit tests, this file should not be modified
 
 #include "CommandTest.h"
+#include "CatCommand.h"
 using namespace std;
 
 CommandTest::CommandTest(AbstractFileSystem* _afs): afs(_afs)

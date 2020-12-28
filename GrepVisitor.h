@@ -6,11 +6,8 @@ class GrepVisitor : public AbstractFileVisitor {
 
 public:
 	GrepVisitor(string);
-	void visit_TextFile(TextFile*);
-	void visit_ImageFile(ImageFile*);
-	bool isInFile();
+	bool visit_TextFile(TextFile*);
 private:
 	string query;
-	bool inFile;
 };
 

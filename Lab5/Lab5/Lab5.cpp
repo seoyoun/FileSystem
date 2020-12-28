@@ -32,8 +32,14 @@ int main()
 	system->addFile("1.txt", txt);
 
 
+	AbstractFile* txt2 = factory->createFile("2.txt");
+	vector<char> input2 = { '1', '2', '2', '2', 'X', ' ', 'X',' ', 'X', '3' };
+	txt2->write(input2);
+	system->addFile("2.txt", txt2);
+
+
 	AbstractFile* img = factory->createFile("1.img");
-	std::vector<char> inputImg = { 'X', ' ', 'X', ' ', 'X', ' ', 'X',' ', 'X', '3' };
+	std::vector<char> inputImg = { '1', '2', '2', '2', 'X', ' ', 'X',' ', 'X', '3' };
 	img->write(inputImg);
 	system->addFile("1.img", img);
 
@@ -48,7 +54,7 @@ int main()
 	cmdprompt.addCommand("cat -a", cmd3);
 	cmdprompt.addCommand("ds", cmd4);
 	cmdprompt.addCommand("ds -d", cmd4);
-	//cmdprompt.addCommand("grep", cmd5);
+	cmdprompt.addCommand("grep", cmd5);
 	cmdprompt.run();
 
 	AbstractFile* file = system->openFile("touch");
@@ -60,3 +66,17 @@ int main()
 	
 }
 
+//#pragma once
+//#include "AbstractCommand.h"
+//#include "AbstractFileSystem.h"
+//#include "AbstractFileFactory.h"
+//
+//
+//class GrepCommand :public AbstractCommand {
+//private:
+//	AbstractFileSystem* fileSystem;
+//public:
+//	GrepCommand(AbstractFileSystem*);
+//	virtual void displayInfo();
+//	virtual int execute(std::string);
+//};

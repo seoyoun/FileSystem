@@ -4,25 +4,16 @@
 #include <string>
 #include <math.h>
 using namespace std;
-GrepVisitor::GrepVisitor(string q) :query(q),inFile(false) {}
+GrepVisitor::GrepVisitor(string q) :query(q) {}
 
-void GrepVisitor::visit_TextFile(TextFile* file) {
+bool GrepVisitor::visit_TextFile(TextFile* file) {
 
 	vector<char> chars = file->read();
 	string content(chars.begin(), chars.end());
 	if (content.find(query) != std::string::npos) {
-		inFile = true;
+		return true;
 	}
-	else {
-		inFile = false;
-	}
-}
+	return false;
 
 
-void GrepVisitor::visit_ImageFile(ImageFile* file) {
-	inFile = false;
-}
-
-bool GrepVisitor::isInFile() {
-	return inFile;
 }
