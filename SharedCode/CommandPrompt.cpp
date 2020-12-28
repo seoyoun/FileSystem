@@ -57,7 +57,7 @@ void CommandPrompt::listCommands() {
 }
 
 string CommandPrompt::prompt() {
-	cout << "Enter a command, q to quit, help for a list of commands, or help followed by a command name for more information about that command."
+	cout << endl << "Enter a command, q to quit, help for a list of commands, or help followed by a command name for more information about that command."
 		 << endl;
 	string input;
 	cout << "$ ";

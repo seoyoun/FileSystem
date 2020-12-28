@@ -10,7 +10,6 @@ void BasicDisplayVisitor::visit_TextFile(TextFile* txt) {
 	for (int i = 0; i < txt->getSize(); ++i) {
 	cout << contents[i]<<flush;
 	}
-
 }
 void BasicDisplayVisitor::visit_ImageFile(ImageFile* img) {
 	int length = sqrt(img->getSize());
