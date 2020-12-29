@@ -1,5 +1,5 @@
 // Lab5.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
 #include "..\..\\SharedCode\SimpleFileFactory.h"
 #include "..\..\\SharedCode\SimpleFileSystem.h"
 #include "..\..\\SharedCode\TouchCommand.h"
@@ -65,18 +65,3 @@ int main()
 	return 0;
 	
 }
-
-//#pragma once
-//#include "AbstractCommand.h"
-//#include "AbstractFileSystem.h"
-//#include "AbstractFileFactory.h"
-//
-//
-//class GrepCommand :public AbstractCommand {
-//private:
-//	AbstractFileSystem* fileSystem;
-//public:
-//	GrepCommand(AbstractFileSystem*);
-//	virtual void displayInfo();
-//	virtual int execute(std::string);
-//};

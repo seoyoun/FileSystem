@@ -1,4 +1,6 @@
-﻿#include "CatCommand.h"
+﻿// Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+// definition of the grep command is here
+#include "CatCommand.h"
 #include <iostream>
 #include <iomanip>
 #include <exception>
@@ -11,7 +13,7 @@ using namespace std;
 GrepCommand::GrepCommand(AbstractFileSystem* system) :fileSystem(system) {}
 
 void GrepCommand::displayInfo() {
-	cout << "cat appends, or overwrites a file. use with -a for appending, no argument otherwise" << endl;
+	cout << "use grep <query> to find files containing the query string" << endl;
 }
 
 int GrepCommand::execute(string query) {
@@ -21,6 +23,7 @@ int GrepCommand::execute(string query) {
 		MetadataDisplayVisitor* metadataVisitor = new MetadataDisplayVisitor();
 		cout << "started searching, information of found files are listed below" << endl;
 		cout << "-----------------------------" << endl;
+		// loops through files to search
 		for (string fileName : nameSet) {
 			GrepVisitor* grepVisitor = new GrepVisitor(query);
 			AbstractFile* file = fileSystem->openFile(fileName);

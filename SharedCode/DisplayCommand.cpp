@@ -1,4 +1,5 @@
-
+// Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+// definition of the display command is here
 #include "DisplayCommand.h"
 #include "CatCommand.h"
 #include <iostream>
@@ -18,6 +19,7 @@ void DisplayCommand::displayInfo() {
 
 int DisplayCommand::execute(string filename) {
 	try {
+		// if used with the -d option
 		BasicDisplayVisitor* displayVisitor = new BasicDisplayVisitor;
 		if (filename.substr(filename.find_first_of(" \t") + 1) == "-d") {
 			string::size_type pos = filename.find(' ');
@@ -34,6 +36,7 @@ int DisplayCommand::execute(string filename) {
 			fileSystem->closeFile(file);
 		}
 		else {
+			// if no augment is given
 			string::size_type pos = filename.find(' ');
 			filename = filename.substr(0, pos);
 			AbstractFile* file = fileSystem->openFile(filename);

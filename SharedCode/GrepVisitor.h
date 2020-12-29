@@ -1,5 +1,7 @@
 #pragma once
-// declaration of BasicDisplayVisitor here
+//  Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+// declaration of GrepVisitor is here
+
 #include "TextFile.h"
 #include "AbstractFileVisitor.h"
 class GrepVisitor : public AbstractFileVisitor {

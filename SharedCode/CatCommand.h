@@ -1,3 +1,5 @@
+// Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+// declearation of cat command
 #pragma once
 #include "AbstractCommand.h"
 #include "AbstractFileSystem.h"
