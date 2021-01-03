@@ -32,12 +32,12 @@ int main()
 	GrepCommand* cmd5 = new GrepCommand(system);
 	CommandPrompt cmdprompt;
 
-	set<string> s = system->​getFileNames​();
+	set<string> s = system->getFileNames();
 
 	//rename command
 	MacroCommand* rename = new MacroCommand(system);
 	RenameParsingStrategy* rename_strat = new RenameParsingStrategy;
-	AbstractCommand* copycmd = new CopyCommand(system);
+	CopyCommand* copycmd = new CopyCommand(system);
 	rename->setParseStrategy(rename_strat);
 	rename->addCommand(copycmd);
 	rename->addCommand(cmd2);
@@ -81,9 +81,9 @@ int main()
 	AbstractFile* file = system->openFile("touch");
 	if (file == 0) {
 		cout << "file did not open" << endl;
-		return 1;
+		return cannot_open_file;
 	}
 	system->closeFile(file);
-	return 0;
+	return success;
 
 }

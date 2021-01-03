@@ -13,7 +13,7 @@ void MacroCommand::displayInfo() {
 int MacroCommand::execute(string cmdInputs) {
 	vector<string> inputs = strategy->parse(cmdInputs);
 	for (size_t i = 0; i < cmds.size(); ++i) {
-		int state = cmds[i].execute(inputs[i]);
+		int state = cmds[i]->execute(inputs[i]);
 		if (state != 0) {
 			return cmd_failed;
 		}
@@ -22,7 +22,7 @@ int MacroCommand::execute(string cmdInputs) {
 }
 
 void MacroCommand::addCommand(AbstractCommand* cmd) {
-	cmds.push_back(*cmd);
+	cmds.push_back(cmd);
 }
 
 

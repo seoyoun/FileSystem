@@ -13,7 +13,7 @@ void LSCommand::displayInfo() {
 }
 
 int LSCommand::execute(string filename) {
-	set<string> s = fileSystem->​getFileNames​();
+	set<string> s = fileSystem->getFileNames();
 	try{
 		if (filename != "-m") {
 			set<string>::iterator iter = s.begin();

@@ -1363,6 +1363,7 @@ namespace UnitTest
 			std::set<std::string>::iterator it2 = files.find(filename2);
 			bool found2 = it2 == files.end();
 			Assert::IsFalse(found2);
+			
 		}
 		TEST_METHOD(nooption) {
 			AbstractFileSystem* sfs = new SimpleFileSystem();

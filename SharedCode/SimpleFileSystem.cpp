@@ -57,7 +57,7 @@ int SimpleFileSystem::deleteFile(std::string FileName) {
 
 
 
-set<string> SimpleFileSystem::​getFileNames​() {
+set<string> SimpleFileSystem::getFileNames() {
 	set<string> s;
 	for (auto it = FileMap.begin(); it != FileMap.end(); ++it) {
 		auto i = it->first;

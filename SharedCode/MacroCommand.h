@@ -7,7 +7,7 @@
 
 class MacroCommand :public AbstractCommand {
 private:
-	std::vector<AbstractCommand> cmds;
+	std::vector<AbstractCommand*> cmds;
 	AbstractParsingStrategy* strategy;
 	AbstractFileSystem* fileSystem;
 

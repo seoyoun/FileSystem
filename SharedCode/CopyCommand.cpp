@@ -31,7 +31,7 @@ int CopyCommand::execute(string original_newName) {
 		return cannot_copy_file;
 	}
 
-	int state = fileSystem->addFile(file->getName(), cloned);
+	int state = fileSystem->addFile(cloned->getName(), cloned);
 	if (state == 0) {
 		fileSystem->closeFile(file);
 		return success;

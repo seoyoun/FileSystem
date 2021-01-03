@@ -9,4 +9,4 @@ public:
 
 };
 
-enum cmdStatus { success = 0, unexpectedException = 1, wrongFileName = 2, userQuit = 3, cannot_open_file = 4, cannot_copy_file = 5, cannot_add_file = 6, cmd_failed = 7 };
+enum cmdStatus { success = 0, unexpectedException = 1, wrongFileName = 2, userQuit = 3, cannot_open_file = 4, cannot_copy_file = 5, cannot_add_file = 6, cmd_failed = 7, cannot_create_file = 8 };

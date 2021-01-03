@@ -20,7 +20,7 @@ void GrepCommand::displayInfo() {
 int GrepCommand::execute(string query) {
 	try {
 		int fileCount = 0;
-		set<string> nameSet = fileSystem->​getFileNames​();
+		set<string> nameSet = fileSystem->getFileNames();
 		MetadataDisplayVisitor* metadataVisitor = new MetadataDisplayVisitor();
 		cout << "started searching, information of found files are listed below" << endl;
 		cout << "-----------------------------" << endl;

@@ -14,27 +14,27 @@ int TouchCommand::execute(string filename) {
 	if (filename.substr(filename.find_first_of(" \t") + 1) == "-p") {
 		string::size_type pos = filename.find(' ');
 		filename = filename.substr(0, pos);
-		cout << "What is the password? " << endl;
+		cout << "What is the password?" << endl;
 		string pw;
 		getline(cin, pw);
 		AbstractFile* file = fileFactory->createFile(filename);
-		PasswordProxy tem(file, pw);
-		int state = fileSystem->addFile(filename,&tem);
-		if (state != 0) {
+		PasswordProxy* tem = new PasswordProxy(file, pw);
+		int state = fileSystem->addFile(filename,tem);
+		if (state != success) {
 			delete file;
-			return 2;
+			return cannot_add_file;
 		}
-		return 0;
+		return success;
 	}
 	AbstractFile * file = fileFactory->createFile(filename);
 	if (file == 0) {
-		return 1;
+		return cannot_create_file;
 	}
 	int state = fileSystem->addFile(filename, file);
-	if (state != 0) {
+	if (state != success) {
 		delete file;
-		return 2;
+		return cannot_add_file;
 	}
-	return 0;
+	return success;
 
 }
