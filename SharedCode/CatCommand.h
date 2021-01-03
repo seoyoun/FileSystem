@@ -15,4 +15,3 @@ public:
 	virtual int execute(std::string);
 };
 
-enum status { success=0, unexpectedException = 1, wrongFileName = 2, userQuit =3 };

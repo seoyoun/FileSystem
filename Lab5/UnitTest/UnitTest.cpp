@@ -4,7 +4,7 @@
 
 #include "../../SharedCode/TextFile.cpp"
 #include "../../SharedCode/ImageFile.cpp"
-#include "../..//SharedCode/SimpleFileFactory.cpp"
+#include "../../SharedCode/SimpleFileFactory.cpp"
 #include "../../SharedCode/SimpleFileSystem.cpp"
 #include "../../SharedCode/BasicDisplayVisitor.cpp"
 #include "../../SharedCode/MetadataDisplayVisitor.cpp"
@@ -12,12 +12,12 @@
 #include "../../SharedCode/TouchCommand.cpp"
 #include "../../SharedCode/CommandPrompt.cpp"
 #include "../../SharedCode/CommandTest.cpp"
-#include "../../SharedCode\LSCommand.cpp"
-#include "../../SharedCode\RemoveCommand.cpp"
-#include "../../SharedCode\CatCommand.cpp"
-#include "../../SharedCode\DisplayCommand.cpp"
-#include "../../SharedCode\CopyCommand.cpp"
-#include "../../SharedCode\MacroCommand.cpp"
+#include "../../SharedCode/LSCommand.cpp"
+#include "../../SharedCode/RemoveCommand.cpp"
+#include "../../SharedCode/CatCommand.cpp"
+#include "../../SharedCode/DisplayCommand.cpp"
+#include "../../SharedCode/CopyCommand.cpp"
+#include "../../SharedCode/MacroCommand.cpp"
 #include "../../SharedCode/RenameParsingStrategy.cpp"
 
 #undef protected

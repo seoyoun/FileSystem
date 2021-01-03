@@ -5,7 +5,10 @@
 #include <iostream>
 #include <string>
 #include <cstddef>
+#include "TextFile.h"
+#include "ImageFile.h"
 
+using namespace std;
 
 AbstractFile* SimpleFileFactory::createFile(std::string FileName) {
 	size_t i = FileName.rfind('.', FileName.length());

@@ -1,5 +1,6 @@
 ﻿// Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
 // definition of the grep command is here
+#include "GrepCommand.h"
 #include "CatCommand.h"
 #include <iostream>
 #include <iomanip>
@@ -7,7 +8,7 @@
 #include "MetadataDisplayVisitor.h"
 #include "BasicDisplayVisitor.h"
 #include "GrepVisitor.h"
-#include "GrepCommand.h"
+
 using namespace std;
 
 GrepCommand::GrepCommand(AbstractFileSystem* system) :fileSystem(system) {}

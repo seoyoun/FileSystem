@@ -1,5 +1,6 @@
-// Lab5.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// Lab5.cpp : This file contains the 'main' function. Program execution begins and ends there.
 // Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+
 #include "..\..\\SharedCode\SimpleFileFactory.h"
 #include "..\..\\SharedCode\SimpleFileSystem.h"
 #include "..\..\\SharedCode\TouchCommand.h"
@@ -10,12 +11,18 @@
 #include "..\..\\SharedCode\CommandPrompt.h"
 #include "..\..\\SharedCode\BasicDisplayVisitor.h"
 #include "..\..\\SharedCode\GrepCommand.h"
+#include "..\..\\SharedCode\MacroCommand.h"
+#include "..\..\\SharedCode\RenameParsingStrategy.h"
+#include "..\..\\SharedCode\CopyCommand.h"
+
 #include <iostream>
 using namespace std;
 
+
+
 int main()
 {
-	SimpleFileSystem* system = new SimpleFileSystem();
+	AbstractFileSystem* system = new SimpleFileSystem();
 	SimpleFileFactory* factory = new SimpleFileFactory();
 	TouchCommand* cmd = new TouchCommand(system, factory);
 	LSCommand* cmd1 = new LSCommand(system);
@@ -25,9 +32,20 @@ int main()
 	GrepCommand* cmd5 = new GrepCommand(system);
 	CommandPrompt cmdprompt;
 
+	set<string> s = system->​getFileNames​();
+
+	//rename command
+	MacroCommand* rename = new MacroCommand(system);
+	RenameParsingStrategy* rename_strat = new RenameParsingStrategy;
+	AbstractCommand* copycmd = new CopyCommand(system);
+	rename->setParseStrategy(rename_strat);
+	rename->addCommand(copycmd);
+	rename->addCommand(cmd2);
+	
+
 
 	AbstractFile* txt = factory->createFile("1.txt");
-	vector<char> input = {'X','X','\n','X'};
+	vector<char> input = { 'X','X','\n','X' };
 	txt->write(input);
 	system->addFile("1.txt", txt);
 
@@ -55,6 +73,9 @@ int main()
 	cmdprompt.addCommand("ds", cmd4);
 	cmdprompt.addCommand("ds -d", cmd4);
 	cmdprompt.addCommand("grep", cmd5);
+
+	cmdprompt.addCommand("rn", rename);
+
 	cmdprompt.run();
 
 	AbstractFile* file = system->openFile("touch");
@@ -62,6 +83,7 @@ int main()
 		cout << "file did not open" << endl;
 		return 1;
 	}
+	system->closeFile(file);
 	return 0;
-	
+
 }
