@@ -12,7 +12,7 @@ TextFile::TextFile(std::string name) :name{ name } {
 
 
 unsigned int TextFile::getSize() {
-	return contents.size();
+	return unsigned int(contents.size());
 }
 
 

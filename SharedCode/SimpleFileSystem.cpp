@@ -1,6 +1,5 @@
 ﻿// define methods of SimpleFileSystem class here
 #include "SimpleFileSystem.h"
-
 #include <iostream>
 using namespace std;
 

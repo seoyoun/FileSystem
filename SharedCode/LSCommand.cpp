@@ -14,8 +14,11 @@ void LSCommand::displayInfo() {
 
 int LSCommand::execute(string filename) {
 	set<string> s = fileSystem->getFileNames();
+	if (filename != "" && filename != "-m") {
+		return unexpectedException;
+	}
 	try{
-		if (filename != "-m") {
+		if (filename == "") {
 			set<string>::iterator iter = s.begin();
 			while (iter != s.end())
 			{
@@ -31,7 +34,7 @@ int LSCommand::execute(string filename) {
 				++iter;
 			}
 		}
-		else {
+		else if(filename == "-m"){
 			set<string>::iterator iter = s.begin();
 			while (iter != s.end())
 			{
@@ -43,9 +46,10 @@ int LSCommand::execute(string filename) {
 			}
 			
 		}	
+		
 }
 	catch (...) {
-		return 1;
+		return  unexpectedException;
 	}
-	return 0;
+	return success;
 }

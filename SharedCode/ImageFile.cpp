@@ -11,7 +11,7 @@ ImageFile::ImageFile(std::string name) :name{ name }, size{ 0 } {
 
 
 unsigned int ImageFile::getSize() {
-	return contents.size();
+	return unsigned int(contents.size());
 }
 
 

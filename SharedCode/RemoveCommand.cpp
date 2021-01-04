@@ -10,7 +10,7 @@ void RemoveCommand::displayInfo() {
 }
 
 int RemoveCommand::execute(string filename) {
-	/*cout << fileSystem->deleteFile(filename)<<endl;*/
+	//cout << fileSystem->deleteFile(filename)<<endl;
 	return fileSystem->deleteFile(filename);
 
 }

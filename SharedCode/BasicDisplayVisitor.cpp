@@ -7,12 +7,12 @@ using namespace std;
 
 void BasicDisplayVisitor::visit_TextFile(TextFile* txt) {
 	vector<char> contents = txt->read();
-	for (int i = 0; i < txt->getSize(); ++i) {
+	for (unsigned int i = 0; i < txt->getSize(); ++i) {
 	cout << contents[i]<<flush;
 	}
 }
 void BasicDisplayVisitor::visit_ImageFile(ImageFile* img) {
-	int length = sqrt(img->getSize());
+	int length = int(sqrt(img->getSize()));
 	vector<char> contents = img->read();
 
 	for (int i = length - 1; i >= 0; --i) {

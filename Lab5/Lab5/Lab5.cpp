@@ -64,7 +64,7 @@ int main()
 	cmdprompt.addCommand("touch -p", cmd);
 	cmdprompt.addCommand("ls", cmd1);
 	cmdprompt.addCommand("ls -m", cmd1);
-	cmdprompt.addCommand("rm", cmd3);
+	cmdprompt.addCommand("rm", cmd2);
 	cmdprompt.addCommand("cat", cmd3);
 	cmdprompt.addCommand("cat -a", cmd3);
 	cmdprompt.addCommand("ds", cmd4);
