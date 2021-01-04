@@ -39,6 +39,7 @@ int LSCommand::execute(string filename) {
 				MetadataDisplayVisitor* visitor = new MetadataDisplayVisitor;
 				tem->accept(visitor);
 				++iter;
+				fileSystem->closeFile(tem);
 			}
 			
 		}	
