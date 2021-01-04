@@ -27,9 +27,6 @@ int TextFile::write(std::vector<char> name) {
 		return 1;
 	}
 	return 0;
-	/*if (contents == name) {
-		return 0;
-	}*/
 }
 
 
@@ -43,9 +40,6 @@ int TextFile::append(std::vector<char> appenditem) {
 
 
 vector<char> TextFile::read() {
-	//for (int i = 0; i < contents.size(); ++i) {
-	//	cout << contents[i]<<flush;
-	//}
 	return contents;
 }
 

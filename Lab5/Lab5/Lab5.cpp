@@ -42,22 +42,19 @@ int main()
 	rename->addCommand(copycmd);
 	rename->addCommand(cmd2);
 	
-
-
+	// inserted the following sample files for testing the grep command
 	AbstractFile* txt = factory->createFile("1.txt");
-	vector<char> input = { 'X','X','\n','X' };
+	vector<char> input = { 'X','\n','X','X' };
 	txt->write(input);
 	system->addFile("1.txt", txt);
-
 
 	AbstractFile* txt2 = factory->createFile("2.txt");
 	vector<char> input2 = { '1', '2', '2', '2', 'X', ' ', 'X',' ', 'X', '3' };
 	txt2->write(input2);
 	system->addFile("2.txt", txt2);
 
-
 	AbstractFile* img = factory->createFile("1.img");
-	std::vector<char> inputImg = { '1', '2', '2', '2', 'X', ' ', 'X',' ', 'X', '3' };
+	std::vector<char> inputImg = { 'X',' ',' ','X',' ',' ','X', ' ',' ','3' };
 	img->write(inputImg);
 	system->addFile("1.img", img);
 
@@ -77,13 +74,5 @@ int main()
 	cmdprompt.addCommand("rn", rename);
 
 	cmdprompt.run();
-
-	AbstractFile* file = system->openFile("touch");
-	if (file == 0) {
-		cout << "file did not open" << endl;
-		return cannot_open_file;
-	}
-	system->closeFile(file);
-	return success;
 
 }

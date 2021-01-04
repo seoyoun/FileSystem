@@ -15,11 +15,6 @@ void BasicDisplayVisitor::visit_ImageFile(ImageFile* img) {
 	int length = sqrt(img->getSize());
 	vector<char> contents = img->read();
 
-	//for (std::vector<char>::const_iterator i = contents.begin(); i != contents.end(); ++i)
-	//std::cout << *i << ' ';
-	/*cout << " other length: "<<length<<endl;*/
-
-
 	for (int i = length - 1; i >= 0; --i) {
 		for (int j = 0; j < length; ++j) {
 			cout << contents[i * length + j]<<flush;

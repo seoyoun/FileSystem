@@ -6,6 +6,7 @@
 #include <exception>
 #include "MetadataDisplayVisitor.h"
 #include "BasicDisplayVisitor.h"
+#include "AbstractCommand.h"
 using namespace std;
 
 
@@ -33,7 +34,6 @@ int CatCommand::execute(string filename) {
 				cout << c;
 			}
 			cout << endl;
-			input.push_back('\n');
 			// continously get user input while :wq or :w is not typed
 			while (1 == 1) {
 				string line;
@@ -43,12 +43,17 @@ int CatCommand::execute(string filename) {
 					return success;
 				}
 				else if (line == ":wq") {
-					file->append(input);
+					input.pop_back();
+					int appendStatus = file->append(input);
 					fileSystem->closeFile(file);
-					return success;
+					if (appendStatus == 0) {
+						return success;
+					}
+					return wrong_file_type;
 				}
 				std::copy(line.begin(), line.end(), std::back_inserter(input));
 				input.push_back('\n');
+				
 			}
 		}
 		else {
@@ -68,9 +73,13 @@ int CatCommand::execute(string filename) {
 					return success;
 				}
 				else if(line == ":wq") {
-					file->write(input);
+					input.pop_back();
+					int writeStatus = file->write(input);
 					fileSystem->closeFile(file);
-					return success;
+					if (writeStatus == 0) {
+						return success;
+					}
+					return unexpectedException;
 				}
 				std::copy(line.begin(), line.end(), std::back_inserter(input));
 				input.push_back('\n');

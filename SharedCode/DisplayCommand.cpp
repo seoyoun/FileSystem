@@ -30,9 +30,12 @@ int DisplayCommand::execute(string filename) {
 				return wrongFileName;
 			}
 			vector<char> content = file->read();
+			
 			for (char c : content) {
 				cout << c;
 			}
+			cout << endl;
+			
 			fileSystem->closeFile(file);
 		}
 		else {

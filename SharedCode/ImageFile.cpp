@@ -25,13 +25,16 @@ int ImageFile::write(std::vector<char> file) {
 	size = file.back();
 	int length = (int)(size)-48;
 
-	for (int i = 0; i < file.size() - 1; ++i) {
-		if (length * length != (file.size() - 1) || (file[i] != 'X' && file[i] != ' ')) {
+	vector<char> checkedFile = file;
+
+	for (int i = 0; i < checkedFile.size() - 1; ++i) {
+		if (length * length != (checkedFile.size() - 1) || (checkedFile[i] != 'X' && checkedFile[i] != ' ')) {
 			contents.clear();
 			size = '0';
+			cout << "can not write as image" << endl;
 			return 1;
 		}
-		contents.push_back(file[i]);
+		contents.push_back(checkedFile[i]);
 	}
 	return 0;
 }
@@ -43,7 +46,6 @@ int ImageFile::append(std::vector<char> appenditem) {
 
 
 vector<char> ImageFile::read() {
-	int length = (int)(size)-48;
 	return contents;
 }
 

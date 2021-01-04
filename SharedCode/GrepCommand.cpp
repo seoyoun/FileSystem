@@ -23,6 +23,7 @@ int GrepCommand::execute(string query) {
 		set<string> nameSet = fileSystem->getFileNames();
 		MetadataDisplayVisitor* metadataVisitor = new MetadataDisplayVisitor();
 		cout << "started searching, information of found files are listed below" << endl;
+		cout << "format: file name, file type, size" << endl;
 		cout << "-----------------------------" << endl;
 		// loops through files to search
 		for (string fileName : nameSet) {
