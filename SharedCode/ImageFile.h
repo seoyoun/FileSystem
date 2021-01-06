@@ -16,4 +16,5 @@ private:
 	std::vector<char> contents;
 	std::string name;
 	char size;
+	std::vector<char> modifiedcontents;
 };
