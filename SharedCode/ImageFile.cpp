@@ -21,6 +21,9 @@ std::string ImageFile::getName() {
 
 
 int ImageFile::write(std::vector<char> file) {
+	if (file.empty()) {
+		file.push_back(0);
+	}
 	modifiedcontents = file;
 	size = file.back();
 	int length = (int)(size)-48;
@@ -56,20 +59,15 @@ void ImageFile::accept(AbstractFileVisitor* visitor) {
 }
 
 AbstractFile* ImageFile::clone(string newFileName) {
+	
 	AbstractFile* newFile = new ImageFile(newFileName + ".img");
 	vector<char> newvector = modifiedcontents;
-	/*for (char c : contents) {
-		cout << c << flush;
-	}
-	cout << endl;*/
+	
 	
 	char length = (char)getSize();
 	cout << length << endl;
 
-	//newvector.push_back(length);
-	for (char c : newvector) {
-		cout << c << flush;
-	}
+	
 	cout << endl;
 	newFile->write(newvector);
 

@@ -26,7 +26,7 @@ int CopyCommand::execute(string original_newName) {
 
 	AbstractFile* cloned = file->clone(newName);
 	if (cloned == 0) {
-		cout << "file cannot be copied" << endl; //not printing so file itself is getting copied successfully but just can't write to it
+		cout << "file cannot be copied" << endl; 
 		fileSystem->closeFile(file);
 		return cannot_copy_file;
 	}
