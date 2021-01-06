@@ -18,3 +18,5 @@ public:
 	virtual int closeFile(AbstractFile*) = 0;
 	virtual std::set<std::string> getFileNames() = 0;
 };
+
+enum fileSystemStatus{file_does_not_exist = 10, file_is_open = 11};

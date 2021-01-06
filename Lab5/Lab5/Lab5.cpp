@@ -22,7 +22,7 @@ using namespace std;
 
 int main()
 {
-	AbstractFileSystem* system = new SimpleFileSystem();
+	SimpleFileSystem* system = new SimpleFileSystem();
 	SimpleFileFactory* factory = new SimpleFileFactory();
 	TouchCommand* cmd = new TouchCommand(system, factory);
 	LSCommand* cmd1 = new LSCommand(system);
@@ -32,7 +32,7 @@ int main()
 	GrepCommand* cmd5 = new GrepCommand(system);
 	CommandPrompt cmdprompt;
 
-	set<string> s = system->getFileNames();
+	//set<string> s = system->getFileNames();
 
 	//rename command
 	MacroCommand* rename = new MacroCommand(system);
@@ -41,6 +41,7 @@ int main()
 	rename->setParseStrategy(rename_strat);
 	rename->addCommand(copycmd);
 	rename->addCommand(cmd2);
+
 	
 	// inserted the following sample files for testing the grep command
 	AbstractFile* txt = factory->createFile("1.txt");
@@ -58,6 +59,11 @@ int main()
 	img->write(inputImg);
 	system->addFile("1.img", img);
 
+	/*AbstractFile* one = factory->createFile("21.txt");
+	vector<char> input21 = { 'X','\n','X','X' };
+	one->write(input);
+	system->addFile("21.txt", one);*/
+
 	cmdprompt.setFileSystem(system);
 	cmdprompt.setFileFactory(factory);
 	cmdprompt.addCommand("touch", cmd);
@@ -70,9 +76,28 @@ int main()
 	cmdprompt.addCommand("ds", cmd4);
 	cmdprompt.addCommand("ds -d", cmd4);
 	cmdprompt.addCommand("grep", cmd5);
+	cmdprompt.addCommand("cp", copycmd);
 
 	cmdprompt.addCommand("rn", rename);
 
 	cmdprompt.run();
 
+	//delete one;
+	delete img;
+	delete txt2;
+	delete txt;
+	delete copycmd;
+	delete rename_strat; 
+	delete rename;
+	
+	
+	delete cmd;
+	delete cmd1;
+	delete cmd2;
+	delete cmd3;
+	delete cmd4;
+	delete cmd5;
+	
+	delete factory;
+	delete system;
 }

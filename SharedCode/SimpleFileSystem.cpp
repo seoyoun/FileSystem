@@ -6,6 +6,7 @@ using namespace std;
 
 
 int SimpleFileSystem::addFile(std::string InsertFile, AbstractFile* a) {
+	//checks file does not already exist, file is not nullptr
 	if (FileMap.find(InsertFile) != FileMap.end() || a == nullptr) {
 		return 1;
 	}
@@ -34,7 +35,7 @@ int SimpleFileSystem::closeFile(AbstractFile* ClosedFile) {
 		OpenFile.erase(ClosedFile);
 		return 0;
 	}
-	return 1;
+	return file_is_open;
 }
 
 
@@ -42,16 +43,16 @@ int SimpleFileSystem::closeFile(AbstractFile* ClosedFile) {
 int SimpleFileSystem::deleteFile(std::string FileName) {
 	if (FileMap.find(FileName) != FileMap.end()) {
 		if (OpenFile.find(FileMap[FileName]) == OpenFile.end()) {
-			cout << FileMap.size() << endl;
+			
 			delete FileMap[FileName];
 			FileMap.erase(FileName);
 			return 0;
 		}
 		else {
-			return 1;
+			return file_is_open; //file is open
 		}
 	}
-	return 1;
+	return file_does_not_exist; //file not in system
 }
 
 

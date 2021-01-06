@@ -18,7 +18,7 @@ Sally Lee:
 -Rename command
 ----------------------------------------------------------------------------------------------------------------------------------------------
 Erros and bugs:
-No erros or bugs
+None
 ----------------------------------------------------------------------------------------------------------------------------------------------
 Tests:
 LS command: We added 3 files, 1.txt, 1.img and 2.txt in advance. Both "ls" and "ls -m" are tested. Output:
@@ -47,13 +47,16 @@ $ touch pass.txt -p
 What is the password?
 1234
 
-Cat command: Tested for appending, and overwriting to both image and text files. Special cases such as multiple consequtive newline characters(\n) and special symboles also tested. Image files are tested to make sure they can not be used for the append option.
+Cat command: Tested for appending, and overwriting to both image and text files. Special cases such as multiple consecutive newline characters(\n) and special symboles also tested. Image files are tested to make sure they can not be used for the append option.
 
 Display command: Tested for both image and text files, with and without -d command. Files while special contents such as one with special characters are also tested and made sure to be working.
 
-Copy command: We first created a file and wrote to it. Then we made a copy of that file. There was the same content in the copy and writing to the copy did not affect the original file. Output:
+Copy command: We first created a file and wrote to it. Then we made a copy of that file. There was the same content in the copy and writing to the copy did not affect the original file.
 
+Macro command: We composed a macro command with an LS command, a remove command, and another LS command. The original files in the file system were correctly first shown 
+and then all the remaining files after a file was removed were shown.
 
+Rename Command: We called the rename command on an exisiting file in the file system and called the LSCommand which showed the name of the intended file had been correctly changed.
 
 
 

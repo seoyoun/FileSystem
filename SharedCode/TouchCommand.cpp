@@ -22,7 +22,7 @@ int TouchCommand::execute(string filename) {
 		int state = fileSystem->addFile(filename,tem);
 		if (state != success) {
 			delete file;
-			return cannot_add_file;
+			return cannot_add_file; //6
 		}
 		return success;
 	}

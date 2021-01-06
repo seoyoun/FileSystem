@@ -26,7 +26,7 @@ int CatCommand::execute(string filename) {
 			filename = filename.substr(0, pos);
 			AbstractFile* file = fileSystem->openFile(filename);
 			if (file == nullptr) {
-				cout << "\"" << filename << "\"" << " not found in the file system ";
+				cout << "\"" << filename << "\"" << " not found in the file system "; //printed when tested with 1.txt
 				return wrongFileName;
 			}
 			vector<char> content = file->read();
@@ -43,6 +43,9 @@ int CatCommand::execute(string filename) {
 					return success;
 				}
 				else if (line == ":wq") {
+					if (input.size() == 0) {
+						input.push_back(' ');
+					}
 					input.pop_back();
 					int appendStatus = file->append(input);
 					fileSystem->closeFile(file);
@@ -73,6 +76,9 @@ int CatCommand::execute(string filename) {
 					return success;
 				}
 				else if(line == ":wq") {
+					if (input.size() == 0) {
+						input.push_back(' ');
+					}
 					input.pop_back();
 					int writeStatus = file->write(input);
 					fileSystem->closeFile(file);

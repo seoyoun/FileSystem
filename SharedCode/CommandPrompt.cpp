@@ -51,7 +51,7 @@ int CommandPrompt::run() {
 		cmd = prompt();
 		stringstream stream(cmd);
 		if (cmd == "q") {
-			return 1;
+			return userQuit;
 		}
 		if (cmd == "help") {
 			listCommands();
@@ -72,6 +72,7 @@ int CommandPrompt::run() {
 					int state;
 					state = itr->second->execute(exe);
 					if (state != 0) {
+						
 						cout << "command failed" << endl;
 					}
 				}
@@ -104,6 +105,7 @@ int CommandPrompt::run() {
 						int state;
 						state = itr->second->execute(extraCmd);
 						if (state != 0) {
+							//cout << state << endl;
 							cout << "command failed" << endl;
 						}
 					}
