@@ -1,3 +1,8 @@
+/* File: LSCommand.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: declaration of the LSCommand class
+			LSCommand ouputs to the terminal the names of all files currently in the file system.
+*/
 #pragma once
 #include "AbstractCommand.h"
 #include "AbstractFileSystem.h"

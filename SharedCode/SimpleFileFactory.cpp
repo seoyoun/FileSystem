@@ -1,4 +1,9 @@
-// studio 18 - simple file factory definitions
+/* File: SimpleFileFactory.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: definitions of the SimpleFileFactory class member functions.
+			SimpleFileFactory creates a TextFile or an ImageFile.
+   Studio 18
+*/
 #include "SimpleFileFactory.h"
 #include "AbstractFile.h"
 #include "SimpleFileSystem.h"

@@ -1,3 +1,9 @@
+/* File: CopyCommand.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: definitions of CopyCommand class member functions
+			CopyCommand copies a file that exists in the file system and adds the copy to the file system with a different name.
+
+*/
 #include "CopyCommand.h"
 #include <iostream>
 #include <sstream>
@@ -6,7 +12,8 @@ using namespace std;
 CopyCommand::CopyCommand(AbstractFileSystem* system) :fileSystem(system) {}
 
 void CopyCommand::displayInfo() {
-	cout << "copy copies a file that exists in the file system and adds the copy to the file system with a different name" << endl;
+	cout << "The copy command copies a file that exists in the file system and adds the copy to the file system with a different name" << endl;
+	cout << "It is invoked with the following:" << endl;
 	cout << "cp <file_to_copy> <new_name_with_no_extension>" << endl;
 }
 

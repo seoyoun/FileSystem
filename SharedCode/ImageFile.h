@@ -1,5 +1,11 @@
+/* File: ImageFile.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: declaration of the ImageFile class
+			An ImageFile can be read, written to, copied, and displayed but cannot be appended.
+			Its name and size can be accessed publicly.
+			It is created through a SimpleFileFactory.
+*/
 #pragma once
-// Image file class declaration here
 #include "AbstractFile.h"
 class ImageFile : public AbstractFile {
 public:
@@ -16,5 +22,5 @@ private:
 	std::vector<char> contents;
 	std::string name;
 	char size;
-	std::vector<char> modifiedcontents;
+	
 };

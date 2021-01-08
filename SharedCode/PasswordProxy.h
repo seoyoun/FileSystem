@@ -1,3 +1,8 @@
+/* File: PasswordProxy.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: declaration of the PasswordProxy class 
+			PasswordProxy protects an AbstractFile with a password
+*/
 #pragma once
 #include "AbstractFile.h"
 #include <string>

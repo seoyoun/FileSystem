@@ -17,8 +17,22 @@ Sally Lee:
 -Macro command
 -Rename command
 ----------------------------------------------------------------------------------------------------------------------------------------------
-Erros and bugs:
+Errors and bugs:
 None
+
+Return values:
+0 = success  
+1 = unexpectedException 
+2 = wrongFileName 
+3 = userQuit
+4 = cannot_open_file 
+5 = cannot_copy_file 
+6 = cannot_add_file 
+7 = cmd_failed 
+8 = cannot_create_file 
+9 = wrong_file_type
+10 = file does not exist in the file system
+11 = file is already open
 ----------------------------------------------------------------------------------------------------------------------------------------------
 Tests:
 LS command: We added 3 files, 1.txt, 1.img and 2.txt in advance. Both "ls" and "ls -m" are tested. Output:
@@ -53,8 +67,6 @@ Display command: Tested for both image and text files, with and without -d comma
 
 Copy command: We first created a file and wrote to it. Then we made a copy of that file. There was the same content in the copy and writing to the copy did not affect the original file.
 
-Macro command: We composed a macro command with an LS command, a remove command, and another LS command. The original files in the file system were correctly first shown 
-and then all the remaining files after a file was removed were shown.
 
 Rename Command: We called the rename command on an exisiting file in the file system and called the LSCommand which showed the name of the intended file had been correctly changed.
 

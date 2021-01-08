@@ -1,5 +1,11 @@
+/* File: TextFile.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: declaration of the TextFile class
+			A TextFile can be read, written to, appended, copied, and displayed.
+			Its name and size can also be accessed publicly.
+			It is created through a SimpleFileFactory.
+*/
 #pragma once
-// TextFile declaration goes here
 #include "AbstractFile.h"
 class TextFile : public AbstractFile {
 public:

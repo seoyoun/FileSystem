@@ -1,4 +1,9 @@
-﻿#include "LSCommand.h"
+﻿/* File: LSCommand.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: defintions of the LSCommand class member functions
+			LSCommand ouputs to the terminal the names of all files currently in the file system.
+*/
+#include "LSCommand.h"
 #include <iostream>
 #include <iomanip>
 #include <exception>

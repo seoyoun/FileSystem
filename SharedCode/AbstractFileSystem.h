@@ -1,8 +1,10 @@
-﻿#pragma once
-// declaration of the interface all file systems provide goes here
-
+﻿/* File: AbstractFileSystem.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: declaration of the AbstractFileSystem base class
+			AbstractFileSystem is the interface each concrete file system will define.
+*/
+#pragma once
 #include "AbstractFile.h"
-
 #include <string>
 #include <set>
 

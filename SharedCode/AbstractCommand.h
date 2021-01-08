@@ -1,3 +1,9 @@
+/* File: AbstractCommand.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: declaration of the AbstractCommand base class
+			AbstractCommand is the interface each concrete command will define.
+			AbstractCommand also documents the return values of different errors a command may yield.
+*/
 #pragma once
 #include<string>
 class AbstractCommand {

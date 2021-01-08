@@ -16,6 +16,7 @@
 #include "..\..\\SharedCode\CopyCommand.h"
 
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 
@@ -32,7 +33,7 @@ int main()
 	GrepCommand* cmd5 = new GrepCommand(system);
 	CommandPrompt cmdprompt;
 
-	//set<string> s = system->getFileNames();
+	
 
 	//rename command
 	MacroCommand* rename = new MacroCommand(system);
@@ -41,6 +42,8 @@ int main()
 	rename->setParseStrategy(rename_strat);
 	rename->addCommand(copycmd);
 	rename->addCommand(cmd2);
+
+
 
 	
 	// inserted the following sample files for testing the grep command
@@ -58,11 +61,9 @@ int main()
 	std::vector<char> inputImg = { 'X',' ',' ','X',' ',' ','X', ' ',' ','3' };
 	img->write(inputImg);
 	system->addFile("1.img", img);
+	
 
-	/*AbstractFile* one = factory->createFile("21.txt");
-	vector<char> input21 = { 'X','\n','X','X' };
-	one->write(input);
-	system->addFile("21.txt", one);*/
+	
 
 	cmdprompt.setFileSystem(system);
 	cmdprompt.setFileFactory(factory);
@@ -82,7 +83,7 @@ int main()
 
 	cmdprompt.run();
 
-	//delete one;
+	
 	delete img;
 	delete txt2;
 	delete txt;
@@ -100,4 +101,5 @@ int main()
 	
 	delete factory;
 	delete system;
+	
 }

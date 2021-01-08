@@ -1,5 +1,9 @@
+/* File: BasicDisplayVisitor.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: declaration of the BasicDisplayVisitor class
+			BasicDisplayVisitor displays / prints the contents of a TextFile or an ImageFile.
+*/
 #pragma once
-// declaration of BasicDisplayVisitor here
 #include "AbstractFileVisitor.h"
 #include "ImageFile.h"
 #include "TextFile.h"

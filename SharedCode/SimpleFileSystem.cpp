@@ -1,4 +1,10 @@
-﻿// define methods of SimpleFileSystem class here
+﻿/* File: SimpleFileSystem.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: definitions of the SimpleFileSystem class member functions
+			SimpleFileSystem can add, open, close, and delete files
+			SimpleFileSystem also allows access to the names of all files in it.
+*/
+
 #include "SimpleFileSystem.h"
 #include <iostream>
 using namespace std;
@@ -49,7 +55,7 @@ int SimpleFileSystem::deleteFile(std::string FileName) {
 			return 0;
 		}
 		else {
-			return file_is_open; //file is open
+			return file_is_open;
 		}
 	}
 	return file_does_not_exist; //file not in system

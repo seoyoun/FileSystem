@@ -1,3 +1,8 @@
+/* File: RemoveCommand.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: definitions of the RemoveCommand class member functions
+			RemoveCommand removes the file with the provided name from the file system.
+*/
 #include "RemoveCommand.h"
 #include <iostream>
 using namespace std;
@@ -10,7 +15,7 @@ void RemoveCommand::displayInfo() {
 }
 
 int RemoveCommand::execute(string filename) {
-	//cout << fileSystem->deleteFile(filename)<<endl;
+	
 	return fileSystem->deleteFile(filename);
 
 }

@@ -1,4 +1,10 @@
-//  Define the TextFile class here
+/* File: TextFile.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: definitions of the TextFile class member functions.
+			A TextFile can be read, written to, appended, copied, and displayed.
+			Its name and size can also be accessed publicly.
+			It is created through a SimpleFileFactory.
+*/
 #include "TextFile.h"
 #include <vector>
 #include <iostream>

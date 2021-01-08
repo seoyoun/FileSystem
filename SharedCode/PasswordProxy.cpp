@@ -1,3 +1,8 @@
+/* File: PasswordProxy.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: defintions of the PasswordProxy class member functions
+			PasswordProxy protects an AbstractFile with a password
+*/
 #include "PasswordProxy.h"
 #include <iostream>
 using namespace std;
@@ -11,7 +16,7 @@ PasswordProxy::~PasswordProxy() {
 }
 
 string PasswordProxy::passwordPrompt() {
-	cout << "please eneter the password" << endl;
+	cout << "please enter the password" << endl;
 	string input;
 	getline(cin, input);
 	return input;

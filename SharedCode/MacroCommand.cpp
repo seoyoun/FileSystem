@@ -1,3 +1,9 @@
+/* File: MacroCommand.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: definitions of the MacroCommand class member functions
+			MacroCommand is a composition of other types of commands.
+			It executes each of the commands it is composed of in order.
+*/
 #include "MacroCommand.h"
 #include <iostream>
 using namespace std;

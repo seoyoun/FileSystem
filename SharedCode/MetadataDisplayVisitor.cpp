@@ -1,4 +1,8 @@
-// definitions of metadata visitor here
+/* File: MetadataDisplayVisitor.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: defintions of the MetadataDisplayVisitor class member functions
+			MetadataDisplayVisitor displays / prints the metadata of a TextFile or an ImageFile
+*/
 #include "MetadataDisplayVisitor.h"
 #include <iostream>
 #include <string>

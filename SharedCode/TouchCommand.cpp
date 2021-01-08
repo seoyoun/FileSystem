@@ -1,3 +1,8 @@
+/* File: TouchCommand.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: definitions of the TouchCommand class member functions
+			TouchCommand uses the file factory to create files and then adds them to the file system.
+*/
 #include "TouchCommand.h"
 #include "PassWordProxy.h"
 #include <iostream>
@@ -22,7 +27,7 @@ int TouchCommand::execute(string filename) {
 		int state = fileSystem->addFile(filename,tem);
 		if (state != success) {
 			delete file;
-			return cannot_add_file; //6
+			return cannot_add_file; 
 		}
 		return success;
 	}

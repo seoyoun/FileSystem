@@ -1,9 +1,15 @@
-// Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
-// definition of the command prompt is here
+/* File: CommandPrompt.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: definitions of the CommandPrompt class member functions
+			CommandPrompt is the user interface for the file system.
+			It is configured with concrete commands and will invoke them when requested by the user.
+*/
 #include "CommandPrompt.h"
 #include <iostream>
 #include <sstream>
 using namespace std;
+
+
 CommandPrompt::CommandPrompt() {
 
 }
@@ -63,7 +69,7 @@ int CommandPrompt::run() {
 			stream >> realCmd;
 			if (!(stream.rdbuf()->in_avail() == 0)) {
 				cmdNum++;
-				extraCmd = stream.str();
+				extraCmd = stream.str(); //includes realCmd
 			}
 			if (cmdNum == 0) {
 				auto itr = commandMap.find(realCmd);
@@ -82,11 +88,11 @@ int CommandPrompt::run() {
 			}
 			if (cmdNum == 1) {
 				if (realCmd == "help") {
-					stringstream helpStream(extraCmd);
+					stringstream helpStream(extraCmd); //currently includes realCmd
 					string garbageDump;
-					helpStream >> garbageDump;
+					helpStream >> garbageDump; //throws away realCmd
 					string helpCmd;
-					helpStream >> helpCmd;
+					helpStream >> helpCmd; //gets second word (command name)
 					auto itr = commandMap.find(helpCmd);
 					if (itr != commandMap.end()) {
 						(itr->second)->displayInfo();
@@ -99,7 +105,6 @@ int CommandPrompt::run() {
 
 					extraCmd = extraCmd.substr(extraCmd.find_first_of(" \t") + 1);
 
-					/*cout << extraCmd << " extra" << endl;*/
 					auto itr = commandMap.find(realCmd);
 					if (itr != commandMap.end()) {
 						int state;

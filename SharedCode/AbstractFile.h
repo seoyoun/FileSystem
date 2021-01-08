@@ -1,8 +1,11 @@
+/* File: AbstractFile.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: declaration of the AbstractFile base class
+			AbstractFile is the interface each concrete file will define.
+*/
 #pragma once
-// declare AbstractFile here. As all methods are virtual and will not be defined, no .cpp file is necessary
 #include <vector>
 #include <string>
-//#include "AbstractFileVisitor.h"
 class AbstractFileVisitor;
 
 class AbstractFile {

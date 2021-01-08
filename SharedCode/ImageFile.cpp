@@ -1,8 +1,15 @@
-// definition of ImageFile class here
+/* File: ImageFile.cpp
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: definitions of the ImageFile class member functions
+			An ImageFile can be read, written to, copied, and displayed but cannot be appended.
+			Its name and size can be accessed publicly.
+			It is created through a SimpleFileFactory.
+*/
 #include "ImageFile.h"
 #include <vector>
 #include <iostream>
 #include "AbstractFileVisitor.h"
+#include <math.h>
 
 using namespace std;
 
@@ -22,14 +29,14 @@ std::string ImageFile::getName() {
 
 int ImageFile::write(std::vector<char> file) {
 	if (file.empty()) {
-		file.push_back(0);
+		file.push_back('0');
 	}
-	modifiedcontents = file;
+	
 	size = file.back();
 	int length = (int)(size)-48;
 
 	vector<char> checkedFile = file;
-
+	contents.clear();
 	for (int i = 0; i < checkedFile.size() - 1; ++i) {
 		if (length * length != (checkedFile.size() - 1) || (checkedFile[i] != 'X' && checkedFile[i] != ' ')) {
 			contents.clear();
@@ -61,15 +68,13 @@ void ImageFile::accept(AbstractFileVisitor* visitor) {
 AbstractFile* ImageFile::clone(string newFileName) {
 	
 	AbstractFile* newFile = new ImageFile(newFileName + ".img");
-	vector<char> newvector = modifiedcontents;
 	
 	
-	char length = (char)getSize();
-	cout << length << endl;
-
+	if (contents.size() != 0) {
+		contents.push_back(size);
+	}
 	
-	cout << endl;
-	newFile->write(newvector);
+	newFile->write(contents);
 
 
 

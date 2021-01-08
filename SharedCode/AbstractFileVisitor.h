@@ -1,5 +1,9 @@
+/* File: AbstractFileVisitor.h
+   Authors: Yanpeng Yuan (yanpeng@wustl.edu), Ziwen Wang (ziwen.wang@wustl.edu), Sally Lee (sallylee@wustl.edu)
+   Summary: declaration of the AbstractFileVisitor base class
+			AbstractFileVisitor is the interface each concrete file visitor will define.
+*/
 #pragma once
-// declaration of the file visitor interface here
 #include <vector>
 #include <string>
 #include "AbstractFile.h"
